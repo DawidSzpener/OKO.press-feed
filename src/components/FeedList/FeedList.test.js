@@ -15,5 +15,6 @@ describe('<FeedList />', () => {
 
   it('should render a list', () => {
     expect(wrapper.text()).toContain('List')
+    expect(wrapper.find('ul')).toHaveLength(1)
   })
 })
