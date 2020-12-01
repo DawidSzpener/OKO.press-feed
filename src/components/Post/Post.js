@@ -3,9 +3,9 @@ import  './Post.css'
 
 const post = (props) => (
   <li className='Post'>
-    {props.title}
-    {props.thumb}
-    {props.data}
+    <img src={props.thumb} alt='pic'/>
+    <h5>{props.title}</h5>
+    <h6>{props.data}</h6>
     {props.excerpt}
     {props.url}
   </li>

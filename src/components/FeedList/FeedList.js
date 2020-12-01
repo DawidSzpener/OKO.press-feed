@@ -17,11 +17,11 @@ class FeedList extends Component {
         return( 
           postList.push(
             <Post
-              title = {post.title}
-              thumb = {post.thumb}
-              data = {post.data}
-              excerpt = {post.excerpt}
-              url = {post.url}
+              title={post.title}
+              thumb={post.thumb}
+              data={post.data}
+              excerpt={post.excerpt}
+              url={post.url}
             />
           )
         )
