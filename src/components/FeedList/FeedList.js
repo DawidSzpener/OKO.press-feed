@@ -30,6 +30,7 @@ class FeedList extends Component {
   render() {
     return(
       <div>
+        <h1>List</h1>
         <ul>
           {this.state.list.map(post => {
             return(
