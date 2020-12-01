@@ -47,7 +47,7 @@ class FeedList extends Component {
 
   render() {
     return(
-      <div id="Container">
+      <div>
         <h1>List</h1>
         <InfiniteScroll
           dataLength={this.state.shownPosts.length}
@@ -70,6 +70,7 @@ class FeedList extends Component {
             )
           })}
         </InfiniteScroll>
+        <div id="bg-pic"></div>
       </div>
     )
   }
