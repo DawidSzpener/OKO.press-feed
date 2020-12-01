@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import './FeedList.css'
 import Post from '../Post/Post'
 import Aux from '../Aux/Aux'
+import Spinner from '../UI/Spinner/Spinner'
 
 class FeedList extends Component {
   state = {
@@ -47,13 +48,12 @@ class FeedList extends Component {
 
   render() {
     return(
-      <div>
-        <h1>List</h1>
+      <div style={{marginTop: '50px'}}>
         <InfiniteScroll
           dataLength={this.state.shownPosts.length}
           next={this.fetchMoreData}
           hasMore={true}
-          loader={<h4>Loading...</h4>}
+          loader={<Spinner />}
         >
           {this.state.shownPosts.map((post, index) => {
             return(
@@ -62,7 +62,7 @@ class FeedList extends Component {
                   key={index}
                   title={post.title}
                   thumb={post.thumb}
-                  data={post.data}
+                  date={post.date}
                   excerpt={post.excerpt}
                   url={post.url}
                 />
