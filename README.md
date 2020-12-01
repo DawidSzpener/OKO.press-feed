@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## How to run this app localy
+## How to run this app locally
 
 1. Clone this repository
 2. Manouver to this projects root folder

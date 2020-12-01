@@ -1,9 +1,10 @@
 import './App.css';
+import FeedList from './components/FeedList/FeedList'
 
 function App() {
   return (
     <div className="App">
-      <h1>1</h1>
+      <FeedList />
     </div>
   );
 }
