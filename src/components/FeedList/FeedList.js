@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import Post from '../Post/Post'
+import Aux from '../Aux/Aux'
+
 class FeedList extends Component {
   state = {
     list: []
@@ -13,13 +16,13 @@ class FeedList extends Component {
       Object.values(res.data.posts).map(post => {
         return( 
           postList.push(
-            <h4>
-              {post.title}
-              {post.thumb}
-              {post.data}
-              {post.excerpt}
-              {post.url}
-            </h4>
+            <Post
+              title = {post.title}
+              thumb = {post.thumb}
+              data = {post.data}
+              excerpt = {post.excerpt}
+              url = {post.url}
+            />
           )
         )
       })
@@ -31,12 +34,12 @@ class FeedList extends Component {
     return(
       <div>
         <h1>List</h1>
-        <ul>
+        <ul className="FeedList">
           {this.state.list.map(post => {
             return(
-              <li>
+              <Aux>
                 {post}
-              </li>
+              </Aux>
             )
           })}
         </ul>
