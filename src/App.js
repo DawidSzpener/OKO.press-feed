@@ -1,5 +1,5 @@
 import './App.css';
-import FeedList from './components/FeedList/FeedList'
+import FeedList from './containers/FeedList/FeedList'
 
 function App() {
   return (

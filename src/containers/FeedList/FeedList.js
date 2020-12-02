@@ -3,15 +3,17 @@ import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import './FeedList.css'
-import Post from '../Post/Post'
-import Aux from '../Aux/Aux'
-import Spinner from '../UI/Spinner/Spinner'
+import Card from '../../components/UI/Card/Card'
+import Spinner from '../../components/UI/Spinner/Spinner'
+import EnlargedCard from '../../components/UI/EnlargedCard/EnlargedCard'
 
 class FeedList extends Component {
   state = {
     list: [],
     shownPosts: [],
-    counter: 0
+    counter: 0,
+    showPost: false,
+    enlargedPost: null
   }
 
   componentDidMount() {
@@ -33,11 +35,13 @@ class FeedList extends Component {
       )
       let counter = this.state.counter + 10
       this.setState({shownPosts: posts, counter: counter})
+    })
+    .catch(err => {
+      console.log(err)
     })  
   }
 
   fetchMoreData = () => {
-    console.log('FetchMoreData')
     setTimeout(() => {
       this.setState({
         shownPosts: [...this.state.shownPosts, ...this.state.list.slice(this.state.counter, this.state.counter + 10)],
@@ -46,9 +50,26 @@ class FeedList extends Component {
     }, 1500);
   };
 
+  enlarge = (post) => {
+    this.setState({ enlargedPost: post, showPost: true })
+  }
+
   render() {
+    let shownPost = null
+
+    if(this.state.showPost){
+      shownPost = <EnlargedCard 
+        title={this.state.enlargedPost.title}
+        thumb={this.state.enlargedPost.thumb}
+        date={this.state.enlargedPost.date}
+        excerpt={this.state.enlargedPost.excerpt}
+        url={this.state.enlargedPost.url}
+      />
+    }
+
     return(
       <div style={{marginTop: '50px'}}>
+        {shownPost}
         <InfiniteScroll
           dataLength={this.state.shownPosts.length}
           next={this.fetchMoreData}
@@ -57,16 +78,12 @@ class FeedList extends Component {
         >
           {this.state.shownPosts.map((post, index) => {
             return(
-              <Aux>
-                <Post
-                  key={index}
-                  title={post.title}
-                  thumb={post.thumb}
-                  date={post.date}
-                  excerpt={post.excerpt}
-                  url={post.url}
-                />
-              </Aux>
+              <Card
+                key={index}
+                title={post.title}
+                thumb={post.thumb}
+                clicked={(post) => this.enlarge(post)}
+              />
             )
           })}
         </InfiniteScroll>
