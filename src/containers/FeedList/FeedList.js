@@ -6,6 +6,8 @@ import './FeedList.css'
 import Card from '../../components/UI/Card/Card'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import EnlargedCard from '../../components/UI/EnlargedCard/EnlargedCard'
+import Backdrop from '../../components/UI/Backdrop/Backdrop'
+
 
 class FeedList extends Component {
   state = {
@@ -54,8 +56,13 @@ class FeedList extends Component {
     this.setState({ enlargedPost: post, showPost: true })
   }
 
+  hideEnlargedPost = () => {
+    this.setState({ enlargedPost: null, showPost: false })
+  }
+
   render() {
     let shownPost = null
+    let backdrop = null
 
     if(this.state.showPost){
       shownPost = <EnlargedCard 
@@ -65,11 +72,15 @@ class FeedList extends Component {
         excerpt={this.state.enlargedPost.excerpt}
         url={this.state.enlargedPost.url}
       />
+      backdrop = <Backdrop
+        show={this.state.showPost}
+        clicked={() => this.hideEnlargedPost()}/>
     }
 
     return(
       <div style={{marginTop: '50px'}}>
         {shownPost}
+        {backdrop}
         <InfiniteScroll
           dataLength={this.state.shownPosts.length}
           next={this.fetchMoreData}
@@ -82,7 +93,7 @@ class FeedList extends Component {
                 key={index}
                 title={post.title}
                 thumb={post.thumb}
-                clicked={(post) => this.enlarge(post)}
+                clicked={() => this.enlarge(post)}
               />
             )
           })}
