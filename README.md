@@ -14,3 +14,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## DEMO
 
+![demo](https://github.com/DawidSzpener/zadanie-5/blob/main/src/assets/images/okopress.gif)
