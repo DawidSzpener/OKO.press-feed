@@ -20,10 +20,11 @@ class FeedList extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://pastebin.pl/view/raw/e1658aa0`)
+    axios.get(`http://localhost:3002/posts`)
     .then(res => {
       let postList = []
-      Object.values(res.data.posts).map((post) => {
+      console.log(res)
+      Object.values(res.data).map((post) => {
         return( 
           postList.push(post)
         )
