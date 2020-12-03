@@ -11,7 +11,7 @@ const enlargedCard = (props) => (
         {props.date}
       </div>
       <div className="EnlargedCard-right-title">
-        <h1>{props.title}</h1>
+        <h2>{props.title}</h2>
       </div>
       <div className="EnlargedCard-right-more">
         <br />

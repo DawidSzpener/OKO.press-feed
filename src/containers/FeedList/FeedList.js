@@ -7,6 +7,7 @@ import Card from '../../components/UI/Card/Card'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import EnlargedCard from '../../components/UI/EnlargedCard/EnlargedCard'
 import Backdrop from '../../components/UI/Backdrop/Backdrop'
+import okopress from '../../assets/images/okopress.png'
 
 
 class FeedList extends Component {
@@ -81,6 +82,7 @@ class FeedList extends Component {
       <div style={{marginTop: '50px'}}>
         {shownPost}
         {backdrop}
+        <img alt='okopress logo' src={okopress}/>
         <InfiniteScroll
           dataLength={this.state.shownPosts.length}
           next={this.fetchMoreData}
