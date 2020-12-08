@@ -1,8 +1,6 @@
-# Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # OKO.press feed
+
+This app displays a list of articles written by OKO.press editorial office. Upon reaching the bottom of a list (10 cards), it will automatically load another 10 and so on until there are no more articles.
 
 ## How to run this app locally
 
